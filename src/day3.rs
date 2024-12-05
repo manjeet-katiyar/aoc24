@@ -1,5 +1,6 @@
 use regex::Regex;
 
+#[allow(dead_code)]
 pub fn solve(input: Vec<String>) {
     let mut res1 = 0;
 

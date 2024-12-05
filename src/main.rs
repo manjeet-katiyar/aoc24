@@ -8,6 +8,8 @@ use std::{
 mod day1;
 mod day2;
 mod day3;
+mod day4;
+mod day5;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -17,7 +19,7 @@ fn main() {
         .unwrap_or("./in".to_string());
     let input = read_line(&file_name);
 
-    day3::solve(input);
+    day5::solve(input);
 }
 
 fn read_line(file_path: &str) -> Vec<String> {
