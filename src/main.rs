@@ -13,6 +13,7 @@ mod day5;
 mod day6;
 mod day7;
 mod day8;
+mod day9;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -22,7 +23,7 @@ fn main() {
         .unwrap_or("./in".to_string());
     let input = read_line(&file_name);
 
-    day8::solve(input);
+    day9::solve(input);
 }
 
 fn read_line(file_path: &str) -> Vec<String> {

@@ -25,7 +25,6 @@ pub fn solve(input: Vec<String>) {
         }
     }
 
-    //let is_integer = |v: f64| v == v.trunc();
     let is_valid = |x: f64, y: f64| !(x < 0.0 || x >= n as f64 || y < 0.0 || y >= m as f64);
 
     let mut visited: Vec<bool> = vec![false; n * m];
@@ -102,16 +101,6 @@ pub fn solve(input: Vec<String>) {
     }
 
     let res2 = visited1.iter().filter(|v| **v == true).count();
-    //for i in 0..n {
-    //    for j in 0..m {
-    //        if visited1[i * m + j] {
-    //            print!("#");
-    //        } else {
-    //            print!("{}", input[i][j]);
-    //        }
-    //    }
-    //    println!();
-    //}
     println!("Res1: {}, Res2: {}", res1, res2);
 }
 
