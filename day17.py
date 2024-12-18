@@ -65,39 +65,7 @@ def part1(input, A, B, C):
 
 
 def part2(input, A, B, C):
-    IP = 0
-    STEPS = 2
-
-    PROGRAM = list(map(lambda x: int(x), input[3].split(": ")[1].split(",")))
-
-    res = []
-    while IP < len(PROGRAM) - 1:
-        opcode = PROGRAM[IP]
-        operand = PROGRAM[IP + 1]
-
-        match opcode:
-            case 0:
-                A = A // (2 ** (get_combo(A, B, C, operand)))
-            case 1:
-                B = B ^ operand
-            case 2:
-                B = get_combo(A, B, C, operand) % 8
-            case 3:
-                if A != 0:
-                    IP = operand
-                    continue
-            case 4:
-                B = B ^ C
-            case 5:
-                res.append(get_combo(A, B, C, operand) % 8)
-            case 6:
-                B = A // (2 ** (get_combo(A, B, C, operand)))
-            case 7:
-                C = A // (2 ** (get_combo(A, B, C, operand)))
-
-        IP += STEPS
-
-    return ",".join(map(lambda x: str(x), res))
+    pass
 
 
 if __name__ == "__main__":
@@ -113,4 +81,3 @@ if __name__ == "__main__":
         int(input[2].split(": ")[1]),
     )
     print("Res1: ", part1(input, A, B, C))
-    print("Res1: ", part1(input, 0, B, C))
