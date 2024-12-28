@@ -1,0 +1,47 @@
+import itertools
+
+
+def split_list_on_string(lst, separator):
+    return [
+        list(group)
+        for key, group in itertools.groupby(lst, lambda x: x != separator)
+        if key
+    ]
+
+
+def is_matching_prefix(prefix, word):
+    if len(prefix) > len(word):
+        return False
+
+    for i in range(len(prefix)):
+        if word[i] != prefix[i]:
+            return False
+
+    return True
+
+
+def dfs(dictionary, word):
+    if not word:
+        return True
+
+    for d in dictionary:
+        if is_matching_prefix(d, word) and dfs(dictionary, word[len(d) :]):
+            return True
+
+    return False
+
+
+if __name__ == "__main__":
+    import sys
+
+    filename = sys.argv[1] if len(sys.argv) >= 2 else "in.test"
+    file = open(filename, "r")
+    [d, q] = split_list_on_string(file.read().split("\n"), "")
+    d = d[0].split(", ")
+
+    res1 = 0
+    for word in q:
+        if dfs(d, word):
+            res1 += 1
+
+    print(res1)
